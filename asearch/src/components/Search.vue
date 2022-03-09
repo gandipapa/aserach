@@ -1,18 +1,23 @@
 <template>
     <div class="container">
+      <div class="bg-img">
         <h1>ENTERNAL SPIRTUAL SOCIETY</h1>
-        <img id="bg-img" src="../assets/search-bg.png" >
+      </div>
     </div>
 </template>
 
 <script>
-export default {
-    
-}
 </script>
 <style scoped>
-.bt-img {
-    z-index: -1;
-    width: 100px;
+h1 {
+  text-align: center;
+  color: rgb(39, 68, 129);
+}
+.bg-img {
+  background-image: url('../assets/search-bg.png');
+  background-repeat: no-repeat;
+  /* background-size: cover */
+  width: 100%;
+  height: 1000px;
 }
 </style>
