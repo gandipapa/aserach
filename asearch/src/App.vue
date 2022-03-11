@@ -1,16 +1,21 @@
 <template>
-  <div id="app">
+  <div id='app'>
+    <Header />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Header
+  }
 }
 </script>
 
-<style>
+<style >
 #app {
   width: 100%;
   height: 100vh;
