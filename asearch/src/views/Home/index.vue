@@ -67,7 +67,53 @@
         </div>
       </template>
     </div>
-    <div id="b" class="developer-container"></div>
+
+    <div id="b" class="developer-container">
+      <div class="developer-item-center">
+        <h2 class="developer-title">User-friendly</h2>
+        <div class="developer-summary">Search with no ads</div>
+      </div>
+      <div class="developer-item-censorship">
+        <h2 class="developer-title">Censorship resistance</h2>
+        <div class="developer-summary">
+          No entity can tamper with search results,<br />
+          you will get all you want
+        </div>
+      </div>
+      <div class="developer-item-customization">
+        <h2 class="developer-title">Customization</h2>
+        <div class="developer-summary">
+          Customize your search to balance your <br />
+          needs and costs
+        </div>
+      </div>
+      <div class="developer-item-free">
+        <h2 class="developer-title">Free access</h2>
+        <div class="developer-summary">
+          Anyone can work for the protocol to earn <br />
+          the price
+        </div>
+      </div>
+      <div class="developer-item-governance">
+        <h2 class="developer-title">Governance</h2>
+        <div class="developer-summary">
+          Respect and tolerance to different voices, <br />
+          come and build the protocol together with <br />
+          our society
+        </div>
+      </div>
+    </div>
+
+    <div id="c" class="contact-container">
+      <h1>CONTACT US</h1>
+      <img class="logo-tw" src="@/assets/images/logo_tw.png" alt="" />
+      <address>
+        <p>@Asearch_io</p>
+      </address>
+      <p>Contact the team and join the community</p>
+      <div class="future">FUTURE</div>
+      <img class="footer-img" src="@/assets/images/g_8x2.png" alt="" />
+    </div>
   </div>
 </template>
 
@@ -155,7 +201,101 @@ export default {
   }
 
   .developer-container {
-    background-image: url(./images/icons.png);
+    //两部分页面背景重叠处理
+    z-index: 10;
+    margin-top: 250px;
+    width: 1600px;
+    height: 1225px;
+    background: url("../../assets/images/g_3_1x2.png");
+    background-size: 1489px auto;
+    background-repeat: no-repeat;
+    // background-position: center center;
+    position: relative;
+    .developer-title {
+      font-size: 30px;
+      font-weight: 500;
+      color: #c52393;
+      margin-bottom: 15px;
+    }
+    .developer-summary {
+      font-size: 16px;
+      color: #a1a0e3;
+    }
+    .developer-item-center {
+      position: absolute;
+      top: 490px;
+      left: 680px;
+      .developer-title {
+        color: #253f97;
+        font-size: 42px;
+        font-weight: 800;
+      }
+      .developer-summary {
+        font-size: 30px;
+        color: #253f97;
+      }
+    }
+    .developer-item-censorship {
+      position: absolute;
+      top: 308px;
+      left: 206px;
+    }
+    .developer-item-customization {
+      position: absolute;
+      top: 308px;
+      left: 1225px;
+    }
+    .developer-item-governance {
+      position: absolute;
+      top: 940px;
+      left: 1225px;
+    }
+    .developer-item-free {
+      position: absolute;
+      top: 940px;
+      left: 206px;
+    }
+  }
+  .contact-container {
+    //两部分页面背景重叠处理
+    box-sizing: border-box;
+    z-index: 9;
+    margin-top: -100px;
+    width: 1600px;
+    height: 1185px;
+    background: url("../../assets/images/g_2x2.png");
+    background-size: 1450px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    // background-attachment: fixed;
+    background-position: 148px -25px;
+    text-align: center;
+    color: #444f8b;
+    h1 {
+      padding: 180px 0 60px 0;
+      font-size: 42px;
+    }
+    .logo-tw {
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .future {
+      margin-top: 280px;
+      font-size: 125px;
+      font-weight: 550;
+      margin-left: 65px;
+      letter-spacing: 90px;
+      color: rgba(37, 63, 151, 0.5);
+    }
+    .footer-img {
+      z-index: 8;
+      width: 1600px;
+      margin-top: -330px;
+    }
   }
 }
 </style>

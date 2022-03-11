@@ -18,7 +18,7 @@
           <el-menu-item
             index="1"
             class="header-title"
-            @click="handleItemChecked(1), top('a')"
+            @click="handleItemChecked(1), scroll('a')"
           >
             ABOUT US
           </el-menu-item>
@@ -26,7 +26,7 @@
           <el-menu-item
             index="3"
             class="header-title"
-            @click="handleItemChecked(2), top('a')"
+            @click="handleItemChecked(2), scroll('a')"
           >
             <a href="#developers">DEVELOPERS</a>
           </el-menu-item>
@@ -34,7 +34,7 @@
           <el-menu-item
             index="5"
             class="header-title"
-            @click="handleItemChecked(3), top('a')"
+            @click="handleItemChecked(3), scroll('a')"
           >
             CONNECT
           </el-menu-item>
@@ -63,8 +63,30 @@ export default {
     handleItemChecked (id) {
       this.$bus.$emit('handleItemChecked', id)
     },
-    top (id) {
-      document.querySelector(`#${id}`).scrollIntoView(true)
+    // scroll (id) {
+    //   document.querySelector(`#${id}`).scrollIntoView(true)
+    // },
+    scroll (target) {
+      const scrollPart = document.querySelector(`#${target}`)
+      // 导航安全区 270
+      const top = scrollPart.getBoundingClientRect().top - 270
+      const pageY =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop
+      const endPosition = top + pageY
+      const startTime = +new Date()
+      const duration = 500 // ms
+      function offset () {
+        const time = +new Date() - startTime
+        window.scrollTo(0, pageY + top * (time / duration))
+        offset.timer = requestAnimationFrame(offset)
+        if (time >= duration) {
+          window.scrollTo(0, endPosition)
+          cancelAnimationFrame(offset.timer)
+        }
+      }
+      requestAnimationFrame(offset)
     },
     watchScroll () {
       var scrollTop =
